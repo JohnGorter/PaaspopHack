@@ -3,23 +3,22 @@ html {
 }
 
 .mood-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 600px;
-    margin-top: -350px; /* Half the height */
-    margin-left: -300px; /* Half the width */
+    width: 675px;
+    height: 675px;
+    position: relative;
+    margin-left: -337.50px;
+    margin-top: -397.50px;
 }
 
 .mood-text {
     font-family: "Open Sans ExtraBold", serif;
-    font-size: 100px;
     color: white;
-    position: absolute;
+    margin-left: -225px;
+    margin-top: -40px;
+    font-size: 150px;
+}
+.mood_div {
+    position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: 250px; /* Half the height */
-    margin-left: -150px; /* Half the width */
-    text-align: center;
 }
