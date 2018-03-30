@@ -1,5 +1,9 @@
-html {
-    background: url(../img/bg-website.jpg) no-repeat center center fixed;
+.moog_bg-red {
+    background: url(../img/bg-website-red.jpg)
+}
+
+.mood_bg_green {
+    background: url(../img/bg-website-green.jpg)
 }
 
 .mood_div {
@@ -17,7 +21,7 @@ html {
 }
 
 .mood-text-druk {
-    font-family: "Open Sans ExtraBold", serif;
+    font-family: 'Open Sans', sans-serif;
     color: white;
     margin-left: -225px;
     margin-top: -40px;
@@ -30,4 +34,9 @@ html {
     margin-left: -250px;
     margin-top: -40px;
     font-size: 150px;
+}
+
+mark {
+    background-color: #372a72;
+    color: white;
 }
