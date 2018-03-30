@@ -2,6 +2,12 @@ html {
     background: url(../img/bg-website.jpg) no-repeat center center fixed;
 }
 
+.mood_div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
 .mood-icon {
     width: 675px;
     height: 675px;
@@ -10,15 +16,18 @@ html {
     margin-top: -397.50px;
 }
 
-.mood-text {
+.mood-text-druk {
     font-family: "Open Sans ExtraBold", serif;
     color: white;
     margin-left: -225px;
     margin-top: -40px;
     font-size: 150px;
 }
-.mood_div {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+
+.mood-text-rustig {
+    font-family: "Open Sans ExtraBold", serif;
+    color: white;
+    margin-left: -250px;
+    margin-top: -40px;
+    font-size: 150px;
 }
