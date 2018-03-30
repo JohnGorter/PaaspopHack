@@ -31,9 +31,10 @@ export class PaaspopMoodSource extends PolymerElement {
 
 customElements.define('paaspop-moodsource', PaaspopMoodSource); 
 
+
 var appFun = function(){
     document.getElementById("mood-id").innerHTML = mood;
-    
+     
     if(mood == "rtrsdsdstrt"){
         document.getElementById("mood-icon").src = "img/emoji/nervous.png";
     }
