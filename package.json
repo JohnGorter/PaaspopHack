@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JohnGorter/PaaspopHack/issues"
   },
-  "homepage": "https://github.com/JohnGorter/PaaspopHack#readme"
+  "homepage": "https://github.com/JohnGorter/PaaspopHack#readme",
+  "dependencies": {
+    "@polymer/polymer": "next"
+  }
 }
