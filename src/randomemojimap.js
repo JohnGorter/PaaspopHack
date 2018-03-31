@@ -25,10 +25,10 @@ function generateApollo(status) {
     apolloPartyplace.innerHTML = "";
 
     if (status == 1) {
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < 3; i++) {
             top_position = getRandomInt(0, 280);
             left_position = getRandomInt(-10, 150);
-            addFireEmoji(apolloFireplace);
+            addSleepyEmoji(apolloFireplace);
         }
     }
     if (status == 2) {
@@ -54,10 +54,10 @@ function generatePhoenix(status) {
     phoenixFireplace.innerHTML = "";
 
     if (status == 1) {
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < 3; i++) {
             top_position = getRandomInt(0, 175);
             left_position = getRandomInt(-10, 150);
-            addFireEmoji(phoenixFireplace);
+            addSleepyEmoji(phoenixFireplace);
         }
     }
     if (status == 2) {
@@ -77,6 +77,17 @@ function generatePhoenix(status) {
         left_position = 150;
         addPartyEmoji(phoenixPartyplace)
     }
+}
+
+function addSleepyEmoji(fireplace) {
+    var image = document.createElement('img');
+    image.src = "img/emoji/sleepy.png";
+    image.id = "fire";
+    image.style.position = 'absolute';
+    image.style.zIndex = 3;
+    image.style.top = top_position + "px";
+    image.style.left = left_position + "px";
+    fireplace.appendChild(image);
 }
 
 function addFireEmoji(fireplace) {
