@@ -29,9 +29,17 @@
 }
 
 .map_div {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    width: 1000px;
+    height: 1000px;
+
+    position:relative;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    text-align: center;
 }
 
 .mood-icon {
@@ -39,7 +47,7 @@
     height: 675px;
     position: relative;
     margin-left: auto;
-    margin-top: 140px;
+    margin-top: -50px;
 }
 
 .mood-icon-moderate {
@@ -51,8 +59,6 @@
 
 }
 
-
-
 .mood-text {
     font-family: 'Open Sans', sans-serif;
     color: white;
@@ -61,6 +67,13 @@
     margin-top: 10px;
 }
 
+.artist {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    horiz-align: center;
+    font-size: 150px;
+    margin-top: -50px;
+}
 
 .map{
     position: absolute;
@@ -70,10 +83,36 @@
     height: 930px;;
     margin-left: -664.5px; /* Half the height */
     margin-top: -465px; /* Half the width */
+    z-index: 1;
 }
 
 
 mark {
     background-color: #372a72;
     color: white;
+}
+
+.apollo-playground {
+    width: 170px;
+    height: 330px;
+
+    position: relative;
+    margin-left: 630px;
+    margin-top: 500px;
+}
+
+.banner {
+    position: absolute;
+    left: 50%;
+    margin-left: -747.5px;
+    margin-top: -390px;
+}
+
+.phoenix-playground {
+    width: 170px;
+    height: 200px;
+
+    position: relative;
+    margin-left: 1750px;
+    margin-top: -130px;
 }
