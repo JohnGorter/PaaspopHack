@@ -102,3 +102,10 @@ mark {
 
     /*background-color: white;*/
 }
+
+.banner {
+    position: absolute;
+    left: 50%;
+    margin-left: -747.5px;
+    margin-top: -390px;
+}

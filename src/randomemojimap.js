@@ -5,15 +5,15 @@ var left_position;
 
 window.onload = function () {
     setInterval(function () {
-        generateFaces();
+        generateFaces(5);
     }, 250);
 };
 
-function generateFaces() {
+function generateFaces(amountOfFire) {
     theLeftSide.innerHTML = "";
-    for (var i = 0; i < 10; i++) {
-        top_position = getRandomInt(0, 250);
-        left_position = getRandomInt(-50, 150);
+    for (var i = 0; i < amountOfFire; i++) {
+        top_position = getRandomInt(0, 280);
+        left_position = getRandomInt(-10, 150);
         createElement(i);
     }
 
