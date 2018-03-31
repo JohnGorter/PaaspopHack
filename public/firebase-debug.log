@@ -1,0 +1,55 @@
+[debug] [2018-03-31T11:46:03.473Z] ----------------------------------------------------------------------
+[debug] [2018-03-31T11:46:03.476Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-03-31T11:46:03.476Z] CLI Version:   3.16.0
+[debug] [2018-03-31T11:46:03.476Z] Platform:      darwin
+[debug] [2018-03-31T11:46:03.476Z] Node Version:  v8.10.0
+[debug] [2018-03-31T11:46:03.477Z] Time:          Sat Mar 31 2018 13:46:03 GMT+0200 (CEST)
+[debug] [2018-03-31T11:46:03.477Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-31T11:46:03.491Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-31T11:46:03.491Z] > authorizing via signed-in user
+[debug] [2018-03-31T11:46:03.493Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/votes-app  
+  
+ Sat Mar 31 2018 13:46:03 GMT+0200 (CEST)
+[debug] [2018-03-31T11:46:04.127Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-31T11:46:04.128Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/votes-app/tokens  
+  
+ Sat Mar 31 2018 13:46:04 GMT+0200 (CEST)
+[debug] [2018-03-31T11:46:04.663Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'votes-app'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2018-03-31T11:46:05.301Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.4.2",
+    "firebase-functions": "^0.7.1"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-03-31T11:46:05.304Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/votes-app?view=CONSUMER_VIEW  
+  
+ Sat Mar 31 2018 13:46:05 GMT+0200 (CEST)
+[debug] [2018-03-31T11:46:05.304Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/votes-app?view=CONSUMER_VIEW  
+  
+ Sat Mar 31 2018 13:46:05 GMT+0200 (CEST)
+[debug] [2018-03-31T11:46:06.420Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-31T11:46:06.431Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-03-31T11:46:06.432Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/votes-app  
+  
+ Sat Mar 31 2018 13:46:06 GMT+0200 (CEST)
+[debug] [2018-03-31T11:46:06.433Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/votes-app/apiKeys  
+  
+ Sat Mar 31 2018 13:46:06 GMT+0200 (CEST)
+[debug] [2018-03-31T11:46:07.110Z] <<< HTTP RESPONSE 200
