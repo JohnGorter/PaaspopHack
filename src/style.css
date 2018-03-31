@@ -15,9 +15,17 @@
 }
 
 .mood_div {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    width: 1000px;
+    height: 1000px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    text-align: center;
 }
 
 .map_div {
@@ -30,41 +38,29 @@
     width: 675px;
     height: 675px;
     position: relative;
-    margin-left: -337.50px;
-    margin-top: -397.50px;
+    margin-left: auto;
+    margin-top: 140px;
 }
 
-.mood-icon-crowd {
+.mood-icon-moderate {
     width: 1308px;
     height: 480px;
     position: relative;
-    margin-left: -654px;
-    margin-top: -240px;
+    margin-left: -150px;
+    margin-top: 260px;
+
 }
 
-.mood-text-crowdy {
+
+
+.mood-text {
     font-family: 'Open Sans', sans-serif;
     color: white;
-    margin-left: -200px;
-    margin-top: 00px;
+    horiz-align: center;
     font-size: 150px;
+    margin-top: 10px;
 }
 
-.mood-text-moderate {
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    margin-left: -300px;
-    margin-top: 00px;
-    font-size: 150px;
-}
-
-.mood-text-calm {
-    font-family: "Open Sans", serif;
-    color: white;
-    margin-left: -225px;
-    margin-top: -30px;
-    font-size: 150px;
-}
 
 .map{
     position: absolute;
