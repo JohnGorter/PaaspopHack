@@ -13,7 +13,7 @@ var left_position;
 
 window.onload = function () {
     setInterval(function () {
-        generateApollo(3);
+        generateApollo(1);
     }, 250);
     setInterval(function () {
         generatePhoenix(3);
@@ -39,19 +39,22 @@ function generateApollo(status) {
         }
     }
     if (status == 3) {
-        for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < 8; i++) {
             top_position = getRandomInt(0, 280);
             left_position = getRandomInt(-10, 150);
             addFireEmoji(apolloFireplace);
         }
-        top_position = 10;
-        left_position = -50;
-        addPartyEmoji(apolloPartyplace);
+        for (var i = 0; i < 3; i++) {
+            top_position = getRandomInt(0, 175);
+            left_position = getRandomInt(-10, 150);
+            addPartyEmoji(apolloPartyplace);
+        }
     }
 }
 
 function generatePhoenix(status) {
     phoenixFireplace.innerHTML = "";
+    phoenixPartyplace.innerHTML= "";
 
     if (status == 1) {
         for (var i = 0; i < 3; i++) {
@@ -68,14 +71,16 @@ function generatePhoenix(status) {
         }
     }
     if (status == 3) {
-        for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < 5; i++) {
             top_position = getRandomInt(0, 175);
             left_position = getRandomInt(-10, 150);
             addFireEmoji(phoenixFireplace);
         }
-        top_position = 10;
-        left_position = 150;
-        addPartyEmoji(phoenixPartyplace)
+        for (var i = 0; i < 3; i++) {
+            top_position = getRandomInt(0, 175);
+            left_position = getRandomInt(-10, 150);
+            addPartyEmoji(phoenixPartyplace);
+        }
     }
 }
 
