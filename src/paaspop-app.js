@@ -5,8 +5,9 @@ import './paaspop-includes.js'
 export class PaaspopApp extends PolymerElement {
     static get template() {
         return `
-            <paaspop-moodboard mood="[[mood]]"></paaspop-moodboard>
+            <paaspop-moodboard act="[[currentact]]" mood="[[mood]]"></paaspop-moodboard>
             <paaspop-moodsource last-response="{{mood}}" camid="cam05"></paaspop-moodsource>
+            <paaspop-moodschedule localschedule="{{currentact}}" location="apollo"></paaspop-moodschedule>
         `
     }
 
