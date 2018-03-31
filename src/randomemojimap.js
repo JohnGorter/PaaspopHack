@@ -32,14 +32,14 @@ function generateApollo(status) {
         }
     }
     if (status == 2) {
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < 2; i++) {
             top_position = getRandomInt(0, 280);
             left_position = getRandomInt(-10, 150);
             addFireEmoji(apolloFireplace);
         }
     }
     if (status == 3) {
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 15; i++) {
             top_position = getRandomInt(0, 280);
             left_position = getRandomInt(-10, 150);
             addFireEmoji(apolloFireplace);
@@ -61,14 +61,14 @@ function generatePhoenix(status) {
         }
     }
     if (status == 2) {
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < 2; i++) {
             top_position = getRandomInt(0, 175);
             left_position = getRandomInt(-10, 150);
             addFireEmoji(phoenixFireplace);
         }
     }
     if (status == 3) {
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 15; i++) {
             top_position = getRandomInt(0, 175);
             left_position = getRandomInt(-10, 150);
             addFireEmoji(phoenixFireplace);
