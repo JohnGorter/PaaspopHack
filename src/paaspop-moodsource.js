@@ -1,11 +1,12 @@
-import { PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
+import { PolymerElement } from '@polymer/polymer/polymer-element.js'
 
 var mood = "";
 
 export class PaaspopMoodSource extends PolymerElement {
     static get properties() {
         return {
-            lastResponse: { type:String, value:'happy', notify:true} 
+            lastResponse: { type:String, value:'happy', notify:true},
+            camid: { type:String }
         }
     }
 
@@ -21,10 +22,8 @@ export class PaaspopMoodSource extends PolymerElement {
             messagingSenderId: "623693263456"
         };
         firebase.initializeApp(config);
-        firebase.database().ref('mood').on('value',(snapshot) =>{
-            this.lastResponse = snapshot.val().mood;
-            mood = snapshot.val().mood;
-            appFun();
+        firebase.database().ref('moods/' + this.camid).on('value',(snapshot) =>{
+            this.lastResponse = snapshot.val();
         });
     }
 }

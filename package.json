@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/JohnGorter/PaaspopHack#readme",
   "dependencies": {
-    "@polymer/polymer": "next"
+    "@polymer/iron-pages": "next",
+    "@polymer/paper-checkbox": "^3.0.0-pre.12",
+    "@polymer/polymer": "^3.0.0-pre.12"
   }
 }
