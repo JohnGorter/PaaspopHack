@@ -1,9 +1,13 @@
-.moog_bg-red {
+.moog-bg-red {
     background: url(../img/bg-website-red.jpg)
 }
 
-.mood_bg_green {
+.mood-bg-green {
     background: url(../img/bg-website-green.jpg)
+}
+
+.mood-bg-yellow {
+    background: url(../img/bg-website-yellow.jpg)
 }
 
 .map-bg {
@@ -30,18 +34,34 @@
     margin-top: -397.50px;
 }
 
-.mood-text-druk {
+.mood-icon-crowd {
+    width: 1308px;
+    height: 480px;
+    position: relative;
+    margin-left: -654px;
+    margin-top: -240px;
+}
+
+.mood-text-crowdy {
     font-family: 'Open Sans', sans-serif;
     color: white;
-    margin-left: -225px;
-    margin-top: -30px;
+    margin-left: -200px;
+    margin-top: 00px;
     font-size: 150px;
 }
 
-.mood-text-rustig {
-    font-family: "Open Sans ExtraBold", serif;
+.mood-text-moderate {
+    font-family: 'Open Sans', sans-serif;
     color: white;
-    margin-left: -250px;
+    margin-left: -300px;
+    margin-top: 00px;
+    font-size: 150px;
+}
+
+.mood-text-calm {
+    font-family: "Open Sans", serif;
+    color: white;
+    margin-left: -225px;
     margin-top: -30px;
     font-size: 150px;
 }
