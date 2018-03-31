@@ -99,8 +99,6 @@ mark {
     position: relative;
     margin-left: 630px;
     margin-top: 500px;
-
-    /*background-color: white;*/
 }
 
 .banner {
@@ -108,4 +106,13 @@ mark {
     left: 50%;
     margin-left: -747.5px;
     margin-top: -390px;
+}
+
+.phoenix-playground {
+    width: 170px;
+    height: 200px;
+
+    position: relative;
+    margin-left: 1750px;
+    margin-top: -130px;
 }

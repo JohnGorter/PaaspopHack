@@ -1,42 +1,107 @@
-var theLeftSide = document.getElementById("apollo");
+var apollo = document.getElementById("apollo");
+var phoenix = document.getElementById("phoenix");
+
+var apolloFireplace = document.getElementById("apollo-fireplace");
+var phoenixFireplace = document.getElementById("phoenix-fireplace");
+
+var phoenixPartyplace = document.getElementById("phoenix-partyplace");
+var apolloPartyplace = document.getElementById("apollo-partyplace");
+
 var top_position;
 var left_position;
 
 
 window.onload = function () {
     setInterval(function () {
-        generateFaces(5);
+        generateApollo(3);
+    }, 250);
+    setInterval(function () {
+        generatePhoenix(3);
     }, 250);
 };
 
-function generateFaces(amountOfFire) {
-    theLeftSide.innerHTML = "";
-    for (var i = 0; i < amountOfFire; i++) {
-        top_position = getRandomInt(0, 280);
-        left_position = getRandomInt(-10, 150);
-        createElement(i);
-    }
+function generateApollo(status) {
+    apolloFireplace.innerHTML = "";
+    apolloPartyplace.innerHTML = "";
 
+    if (status == 1) {
+        for (var i = 0; i < 1; i++) {
+            top_position = getRandomInt(0, 280);
+            left_position = getRandomInt(-10, 150);
+            addFireEmoji(apolloFireplace);
+        }
+    }
+    if (status == 2) {
+        for (var i = 0; i < 1; i++) {
+            top_position = getRandomInt(0, 280);
+            left_position = getRandomInt(-10, 150);
+            addFireEmoji(apolloFireplace);
+        }
+    }
+    if (status == 3) {
+        for (var i = 0; i < 10; i++) {
+            top_position = getRandomInt(0, 280);
+            left_position = getRandomInt(-10, 150);
+            addFireEmoji(apolloFireplace);
+        }
+        top_position = 10;
+        left_position = -50;
+        addPartyEmoji(apolloPartyplace);
+    }
 }
 
-function createElement() {
+function generatePhoenix(status) {
+    phoenixFireplace.innerHTML = "";
+
+    if (status == 1) {
+        for (var i = 0; i < 1; i++) {
+            top_position = getRandomInt(0, 175);
+            left_position = getRandomInt(-10, 150);
+            addFireEmoji(phoenixFireplace);
+        }
+    }
+    if (status == 2) {
+        for (var i = 0; i < 1; i++) {
+            top_position = getRandomInt(0, 175);
+            left_position = getRandomInt(-10, 150);
+            addFireEmoji(phoenixFireplace);
+        }
+    }
+    if (status == 3) {
+        for (var i = 0; i < 10; i++) {
+            top_position = getRandomInt(0, 175);
+            left_position = getRandomInt(-10, 150);
+            addFireEmoji(phoenixFireplace);
+        }
+        top_position = 10;
+        left_position = 150;
+        addPartyEmoji(phoenixPartyplace)
+    }
+}
+
+function addFireEmoji(fireplace) {
     var image = document.createElement('img');
     image.src = "img/emoji/fire.png";
+    image.id = "fire";
     image.style.position = 'absolute';
     image.style.zIndex = 3;
     image.style.top = top_position + "px";
     image.style.left = left_position + "px";
-    theLeftSide.appendChild(image);
+    fireplace.appendChild(image);
+}
+
+function addPartyEmoji(partyplace) {
+    var image = document.createElement('img');
+    image.src = "img/emoji/party.png";
+    image.id = "fire";
+    image.style.position = 'absolute';
+    image.style.zIndex = 3;
+    image.style.top = top_position + "px";
+    image.style.left = left_position + "px";
+    partyplace.appendChild(image);
 }
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function wait(ms) {
-    var start = new Date().getTime();
-    var end = start;
-    while (end < start + ms) {
-        end = new Date().getTime();
-    }
-}
