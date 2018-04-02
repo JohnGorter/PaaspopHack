@@ -1,9 +1,14 @@
 import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js';
+import { GestureEventListeners } from '/node_modules/@polymer/polymer/lib/mixins/gesture-event-listeners.js';
 
-export class PaaspopCamera extends PolymerElement {
+
+export class PaaspopCamera extends GestureEventListeners(PolymerElement) {
     static get template() {
         return `
-            <h2>[[cam.camid]]</h2>
+            <style>
+            .selected { background-color:pink}
+            </style>
+            <h2 class$="[[_isSelected(selectedcam)]]" on-tap="_selectCam">[[cam.camid]]</h2>
            <paper-button on-tap="_closeExit">Close Exit</paper-button>
            <paper-button on-tap="_openExit">Open Exit</paper-button>
            <paper-button on-tap="_arrowLeft">Arrow Left</paper-button>
@@ -14,10 +19,18 @@ export class PaaspopCamera extends PolymerElement {
 
     static get properties() {
         return {
-            cam : { type:Object, value:{} }
-
+            cam : { type:Object, value:{} },
+            selectedcam : { type:Object }
            
         }
+    }
+
+    _isSelected(sel){
+        return this.cam == sel ? "selected" : "";
+    }
+
+    _selectCam(e) {
+        this.dispatchEvent(new CustomEvent("select-cam", { detail: this.cam, bubbles:true, composed:true}));
     }
 
     _openExit(){

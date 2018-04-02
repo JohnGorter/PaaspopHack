@@ -11,13 +11,13 @@ export class PaaspopMoodBoard extends PolymerElement {
         .container[level="1"] { background:url('/img/bg-website-green.jpg')}
         .container[level="2"] { background:url('/img/bg-website-yellow.jpg')}
         .container[level="3"] { background:url('/img/bg-website-red.jpg')}
-        .emoji { width:60vw;height:60vh;
+        .emoji { width:100vw;height:100vh;transform:scale(1.2);
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center; }
-        .emoji[level="1"] { background-image:url('/img/emoji/smiling.png')}
-        .emoji[level="2"] { background-image:url('/img/emoji/crowd.png')}
-        .emoji[level="3"] { background-image:url('/img/emoji/nervous.png')}
+        .emoji[level="1"] { background-image:url('/img/quite.png')}
+        .emoji[level="2"] { background-image:url('/img/medium.png')}
+        .emoji[level="3"] { background-image:url('/img/busy.png')}
         .override { scroll:none;position:absolute;top:0px;background-color:white;display:flex;align-items:center;justify-content:center;height:90vh;width:95vw;border:0px solid black;}
         .override_container { display:flex }
         .override_emoji { width:60vw; height:60vh;}
@@ -37,7 +37,7 @@ export class PaaspopMoodBoard extends PolymerElement {
                     <h2>[[timeremaining]] minutes remaining</h2>
                 </div>
                 <div class="emoji" level$="[[cam.level]]"></div>
-
+                [[cam.id]]
                 [[cam.arrow]]
                <div>
             </div>
@@ -49,6 +49,7 @@ export class PaaspopMoodBoard extends PolymerElement {
       return {
           cam: { type:Object, observer:'_changeOverride'},
           act: { type:Object, observer:'_setTimeRemaining'},
+          location: { type:String },
           override: { type:Boolean, value:false },
           timeremaining: { type:Number }
       }
@@ -56,8 +57,6 @@ export class PaaspopMoodBoard extends PolymerElement {
 
   connectedCallback() {
       super.connectedCallback(); 
-
-      var location = "apollo";
       var time = new Date(); 
 
 
@@ -76,7 +75,7 @@ export class PaaspopMoodBoard extends PolymerElement {
   }
 
   _setTimeRemaining(){
-      let ms = new Date(this.act.enddate) - new Date(new Date().setHours(19));
+      let ms = new Date(this.act.enddate) - new Date(new Date().setHours(15));
       this.timeremaining = Math.round(((ms % 86400000) % 3600000) / 60000); // minutes
   }
 

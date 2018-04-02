@@ -23,8 +23,9 @@ export class PaaspopSchedule extends PolymerElement {
 
     _getLocalSchedule(location, schedule){
         if (this.schedule){
-            this.localschedule = this.schedule.filter(i => 
-                new Date(i.startdate) < new Date(new Date().setHours(19)) && new Date(i.enddate) > new Date(new Date().setHours(19)) && i.location == location
+            this.localschedule = this.schedule.filter(i =>  {
+                return new Date(i.startdate) < new Date(new Date().setHours(15)) && new Date(i.enddate) > new Date(new Date().setHours(15)) && i.location == location;
+            }
             )[0];
         }
     }

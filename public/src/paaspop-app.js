@@ -7,10 +7,12 @@ export class PaaspopApp extends PolymerElement {
         return `
             <iron-media-query query="(max-width:600px)" query-matches="{{queryMatches}}"></iron-media-query>
             <template is="dom-if" if="{{queryMatches}}">
-                <paaspop-control on-arrow-left="_arrowLeft" on-arrow-right="_arrowRight" on-close-exit="_closeExit" on-open-exit="_openExit" cams="[[cams]]"></paaspop-control>
+                <div><a href="/map.html">show map</a></div>
+                <paaspop-control on-arrow-left="_arrowLeft" on-arrow-right="_arrowRight" on-close-exit="_closeExit" on-open-exit="_openExit" select-cam cams="[[cams]]"></paaspop-control>
+
             </template>
             <template is="dom-if" if="{{!queryMatches}}">
-                <paaspop-moodboard cam="[[_getFirst(cams)]]" act="{{currentact}}"></paaspop-moodboard>
+                <paaspop-moodboard cam="[[_getFirst(cams)]]" act="{{currentact}}" location="[[]]"></paaspop-moodboard>
             </template>
             <paaspop-moodsource id="pp_moodsource" cams="{{cams}}"></paaspop-moodsource>
             <paaspop-moodschedule localschedule="{{currentact}}" location="apollo"></paaspop-moodschedule>
@@ -19,9 +21,10 @@ export class PaaspopApp extends PolymerElement {
 
     static get properties(){
         return {  
-            message: { type:String, value:'hello world'}  }
+            message: { type:String, value:'hello world'},
+            selectedCam: { type:Object }
+        }
     }
-
     _closeExit(e){
         let cam = e.detail;
         let override = { ...cam, override:true, override_emoji:'cross.png'};

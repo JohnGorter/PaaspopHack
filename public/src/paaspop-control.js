@@ -4,7 +4,7 @@ export class PaaspopControl extends PolymerElement {
     static get template() {
         return `
             <template is="dom-repeat" items="{{cams}}">
-                <paaspop-camera cam="{{item}}"></paaspop-camera>
+                <paaspop-camera selectedcam="[[selectedcam]]" cam="{{item}}"></paaspop-camera>
             </template>
         `;
     }
@@ -12,9 +12,12 @@ export class PaaspopControl extends PolymerElement {
 
     static get properties() {
         return {
-            cams: { type:Array, value:[] }
+            cams: { type:Array, value:[] },
+            selectedcam: { type:Object }
         }
     }
+
+  
 }
 
 
