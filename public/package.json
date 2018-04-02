@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@polymer/iron-media-query": "3.0.0-pre.11",
+    "@polymer/iron-pages": "3.0.0-pre.11",
+    "@polymer/paper-button": "3.0.0-pre.11",
+    "@polymer/paper-icon-button": "3.0.0-pre.11",
+    "@polymer/paper-input": "3.0.0-pre.11",
+    "@polymer/polymer": "3.0.0-pre.11",
+    "lit-html": "^0.7.1",
+    "webcomponents.js": "^0.7.24"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

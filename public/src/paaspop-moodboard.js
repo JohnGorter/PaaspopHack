@@ -11,37 +11,54 @@ export class PaaspopMoodBoard extends PolymerElement {
         .container[level="1"] { background:url('/img/bg-website-green.jpg')}
         .container[level="2"] { background:url('/img/bg-website-yellow.jpg')}
         .container[level="3"] { background:url('/img/bg-website-red.jpg')}
-        .emoji { width:100vw;height:100vh;transform:scale(1.2);
+        .emoji { width:100vw;height:100vh;transform:scale(1.1);
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center; }
         .emoji[level="1"] { background-image:url('/img/quite.png')}
         .emoji[level="2"] { background-image:url('/img/medium.png')}
         .emoji[level="3"] { background-image:url('/img/busy.png')}
-        .override { scroll:none;position:absolute;top:0px;background-color:white;display:flex;align-items:center;justify-content:center;height:90vh;width:95vw;border:0px solid black;}
-        .override_container { display:flex }
-        .override_emoji { width:60vw; height:60vh;}
+        .override { scroll:none;background-color:white;display:flex;flex-flow:column;align-items:center;flex:1;justify-content:center;height100vh;width:100vw;border:0px solid black;}
+        .override_emoji { width:70vw; height:70vh;}
+        .override_emoji[src="/img/emoji/none.png"] { display:none}
+        marquee { color: white;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: digital;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: 30px;}
+        .content { display:flex;flex-flow:column;height:100vh;width:100vw;}
         </style>
         <template is="dom-if" if="cam">
-        <template is="dom-if" if="[[override]]">
-            <div class="override" >
-                <div class="override_container">
+        <div class="content">
+            <div style=" background-color: rgba(0,0,0,0.7);display:flex;width:100vw;height:44px;justify-content:flex-end;align-items:center;">
+            <img src="/img/PP2018 Logo.png" width="100" height="30" style="margin-right:20px;">
+            <img src="/img/infosupport.png" height="50" style="padding-bottom:16px;margin-right:20px;">
+            </div>
+            <template is="dom-if" if="[[override]]">
+            <div class="override" style$="background:url(/img/[[cam.override_background]]);background-size:100% 100%">
                     <img class="override_emoji" src$="/img/emoji/[[_getEmoji(cam.override_emoji)]]"></img>
-                </div>
             </div>
             </template>
             <template is="dom-if" if="[[!override]]">  
             <div class="container" level$="[[cam.level]]">  
-                <div class="score">
-                    <h1>[[act.artist]] is now playing</h1>
-                    <h2>[[timeremaining]] minutes remaining</h2>
-                </div>
                 <div class="emoji" level$="[[cam.level]]"></div>
                 [[cam.id]]
                 [[cam.arrow]]
                <div>
             </div>
             </template>
+            <div style=" background-color: rgba(0,0,0,0.7);display:flex;width:100vw;height:44px;justify-content:flex-end;align-items:center;">
+             <template is="dom-if" if="[[!override]]">  
+            <marquee>[[act.artist]]Kensington is now playing, 20[[timeremaining]] minutes remaining</marquee>
+            </template>
+             <template is="dom-if" if="[[override]]">  
+            <marquee>[[cam.override_message]]</marquee>
+            </template>
+            </div>
+        </div>
         </template>
         `
   }

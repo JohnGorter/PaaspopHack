@@ -8,7 +8,12 @@ export class PaaspopApp extends PolymerElement {
             <iron-media-query query="(max-width:600px)" query-matches="{{queryMatches}}"></iron-media-query>
             <template is="dom-if" if="{{queryMatches}}">
                 <div><a href="/map.html">show map</a></div>
-                <paaspop-control on-arrow-left="_arrowLeft" on-arrow-right="_arrowRight" on-close-exit="_closeExit" on-open-exit="_openExit" select-cam cams="[[cams]]"></paaspop-control>
+                <paaspop-control on-happy-hour="_happyHour" on-arrow-left="_arrowLeft" on-emergency-exit="_emergencyExit" 
+                on-medics-needed="_medicsNeeded"
+                on-thanks="_thanks"
+                on-winner="_winner"
+                on-security-needed="_securityNeeded"
+                on-arrow-right="_arrowRight" on-close-exit="_closeExit" on-open-exit="_openExit" select-cam cams="[[cams]]"></paaspop-control>
 
             </template>
             <template is="dom-if" if="{{!queryMatches}}">
@@ -22,31 +27,69 @@ export class PaaspopApp extends PolymerElement {
     static get properties(){
         return {  
             message: { type:String, value:'hello world'},
-            selectedCam: { type:Object }
+            selectedCam: { type:Object },
+            theme: { type:Boolean, value:true },
         }
     }
     _closeExit(e){
         let cam = e.detail;
-        let override = { ...cam, override:true, override_emoji:'cross.png'};
+        let override = { ...cam, override:true, override_background:'bg-website' + (this.theme ? "-light" : "") + '.jpg',override_emoji:'cross.png'};
         this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
     }
 
     _arrowLeft(e){
         let cam = e.detail;
-        let override = { ...cam, override:true, override_emoji:'arrow_left.png'};
+        let override = { ...cam, override:true, override_background:'bg-website' + (this.theme ? "-light" : "") + '.jpg',override_emoji:'arrow_left.png'};
         this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
     }
     _arrowRight(e){
         let cam = e.detail;
-        let override = { ...cam, override:true, override_emoji:'arrow_right.png'};
+        let override = { ...cam, override:true, override_background:'bg-website' + (this.theme ? "-light" : "") + '.jpg',override_emoji:'arrow_right.png'};
+        this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
+    }
+    _happyHour(e){
+        let cam = e.detail;
+        let override = { ...cam, override:true, override_background:'/emoji/party.gif', override_emoji:'happy_hour.png'};
         this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
     }
 
     _openExit(e){
         let cam = e.detail;
-        let override = { ...cam, override:false, override_emoji:'cross.png'};
+        let override = { ...cam, override:false, override_background:'bg-website' + (this.theme ? "-light" : "") + '.jpg',override_emoji:'cross.png'};
         this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
     }
+
+     _emergencyExit(e){
+        let cam = e.detail;
+        let override = { ...cam, override:true, override_background:'/emoji/exit-sign.jpg',override_emoji:'none.png'};
+        this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
+    }
+
+     _medicsNeeded(e){
+        let cam = e.detail;
+        let override = { ...cam, override:true, override_background:'bg-website' + (this.theme ? "-light" : "") + '.jpg',override_emoji:'medics.png'};
+        this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
+    }
+
+    _winner(e){
+        let cam = e.detail;
+        let override = { ...cam, override:true, override_background:'/emoji/winner.gif',override_emoji:'none.png'};
+        this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
+    }
+
+    _securityNeeded(e){
+        let cam = e.detail;
+        let override = { ...cam, override:true, override_background:'bg-website' + (this.theme ? "-light" : "") + '.jpg',override_emoji:'security.png'};
+        this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
+    }
+
+ _thanks(e){
+        let cam = e.detail;
+        let override = { ...cam, override:true, override_background:'/emoji/thanks.gif',override_emoji:'thanks.png'};
+        this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
+    }
+
+
     _getFirst(){
         return this.cams[0];
     };

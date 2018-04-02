@@ -23,9 +23,9 @@ export class PaaspopMoodSource extends PolymerElement {
         firebase.initializeApp(config);
         firebase.database().ref('moods').on('value',(snapshot) =>{
             this.cams = [];
-            window.setTimeout(() => {
+           // window.setTimeout(() => {
                 this.cams = Object.values(snapshot.val())
-            }, 10); 
+          //  }, 10); 
         });
     }
 
