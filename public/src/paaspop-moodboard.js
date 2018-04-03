@@ -35,7 +35,7 @@ export class PaaspopMoodBoard extends PolymerElement {
         <div class="content">
             <div style=" background-color: rgba(0,0,0,0.7);display:flex;width:100vw;height:44px;justify-content:flex-end;align-items:center;">
             <img src="/img/PP2018 Logo.png" width="100" height="30" style="margin-right:20px;">
-            <img src="/img/infosupport.png" height="50" style="padding-bottom:16px;margin-right:20px;">
+            <img src="/img/info.png" height="50" style="padding-bottom:16px;margin-right:20px;">
             </div>
             <template is="dom-if" if="[[override]]">
             <div class="override" style$="background:url(/img/[[cam.override_background]]);background-size:100% 100%">
