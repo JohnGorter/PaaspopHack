@@ -7,7 +7,7 @@ export class PaaspopApp extends PolymerElement {
         return `
             <iron-media-query query="(max-width:600px)" query-matches="{{queryMatches}}"></iron-media-query>
             <template is="dom-if" if="{{queryMatches}}">
-                <div><a href="/map.html">show map</a></div>
+                <paper-button on-tap="_switch">switch map/board</paper-button>
                 <paaspop-control on-happy-hour="_happyHour" on-arrow-left="_arrowLeft" on-emergency-exit="_emergencyExit" 
                 on-medics-needed="_medicsNeeded"
                 on-thanks="_thanks"
@@ -16,10 +16,22 @@ export class PaaspopApp extends PolymerElement {
                 on-arrow-right="_arrowRight" on-close-exit="_closeExit" on-open-exit="_openExit" select-cam cams="[[cams]]"></paaspop-control>
 
             </template>
+
+ 
+            
             <template is="dom-if" if="{{!queryMatches}}">
-                <paaspop-moodboard cam="[[_getFirst(cams)]]" act="{{currentact}}" location="[[]]"></paaspop-moodboard>
+                <template is="dom-if" if="{{moodboard}}">
+                    <paaspop-moodboard cam="[[_getFirst(cams)]]" act="{{currentact}}" location="apollo"></paaspop-moodboard>
+                </template> 
+            </template> 
+
+             <template is="dom-if" if="{{!queryMatches}}">
+                <template is="dom-if" if="{{!moodboard}}">
+                    <paaspop-map cams="{{cams}}"></paaspop-map>
+                </template>
             </template>
-            <paaspop-moodsource id="pp_moodsource" cams="{{cams}}"></paaspop-moodsource>
+
+           <paaspop-moodsource id="pp_moodsource" cams="{{cams}}"></paaspop-moodsource> 
             <paaspop-moodschedule localschedule="{{currentact}}" location="apollo"></paaspop-moodschedule>
         `
     }
@@ -29,6 +41,7 @@ export class PaaspopApp extends PolymerElement {
             message: { type:String, value:'hello world'},
             selectedCam: { type:Object },
             theme: { type:Boolean, value:true },
+            moodboard : { type:Boolean, value:false }
         }
     }
     _closeExit(e){
@@ -37,6 +50,17 @@ export class PaaspopApp extends PolymerElement {
         this.$.pp_moodsource.setOverrideForCam(e.detail.camid, override);
     }
 
+    _switch(){
+        this.moodboard = !this.moodboard;
+        firebase.database().ref('moods/mode').set(this.moodboard);
+    }
+
+    connectedCallback(){
+        super.connectedCallback(); 
+        firebase.database().ref('moods/mode').on('value', (snapshot) => {
+            this.moodboard = snapshot.val();
+        });
+    }
     _arrowLeft(e){
         let cam = e.detail;
         let override = { ...cam, override:true, override_background:'bg-website' + (this.theme ? "-light" : "") + '.jpg',override_emoji:'arrow_left.png'};

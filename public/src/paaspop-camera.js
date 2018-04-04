@@ -6,21 +6,33 @@ export class PaaspopCamera extends GestureEventListeners(PolymerElement) {
     static get template() {
         return `
             <style>
-            .selected { background-color:pink}
+            .selected { background-color:#455A64}
+            paper-button { width:160px;height:80px;font-family:sans-serif;font-weight:bolder;background-color:#1976D2;margin:10px;text-shadow:5px 5px 5px #000}
+            :root {
+                --paper-input-container-background: white;
+                --paper-input-container-color: white;
+                --paper-input-container-focus-color: white;
+                --paper-input-container-invalid-color: white;
+                --paper-input-container-input-color: white;
+            }
+            h2 { text-shadow:5px 5px 5px #000; font-size:36px;text-align:center;width:85vw;background-color:red;padding:10px;font-family:digital}
             </style>
-            <div style="padding:20px;">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;width:100vw;padding:20px;background-color:#455A64;color:white;">
                 <h2 class$="[[_isSelected(selectedcam)]]" on-tap="_selectCam">[[cam.camid]]</h2>
-            <paper-button on-tap="_closeExit">Close Exit</paper-button>
-            <paper-button on-tap="_openExit">Open Exit</paper-button>
-            <paper-button on-tap="_emergencyExit">Emergency Exit</paper-button>
-            <paper-button on-tap="_medicsNeeded">Medics needed</paper-button>
-            <paper-button on-tap="_securityNeeded">Security needed</paper-button>
-            <paper-button on-tap="_arrowLeft">Arrow Left</paper-button>
-            <paper-button on-tap="_arrowRight">Arrow Right</paper-button>
-            <paper-button on-tap="_happyHour">Happy hour</paper-button>
-            <paper-button on-tap="_winner">Winner</paper-button>
-            <paper-button on-tap="_thanks">Thanks</paper-button>
-            <paper-input label="message" value="{{message}}"></paper-input>
+                <div style="background-color:black;padding:10px;border-radius:10px;">
+                <paper-input style="width:80vw;margin-left:20px;" label="message" value="{{message}}"></paper-input>
+                </div>
+                <paper-button on-tap="_openExit" style="background-color:#388E3C">Clear override</paper-button>
+                <paper-button on-tap="_closeExit">Close Exit</paper-button>
+                <paper-button on-tap="_emergencyExit">Emergency Exit</paper-button>
+                <paper-button on-tap="_medicsNeeded">Medics needed</paper-button>
+                <paper-button on-tap="_securityNeeded">Security needed</paper-button>
+                <paper-button on-tap="_arrowLeft">Arrow Left</paper-button>
+                <paper-button on-tap="_arrowRight">Arrow Right</paper-button>
+                <paper-button on-tap="_happyHour" style="background-color:#FBC02D">Happy hour</paper-button>
+                <paper-button on-tap="_winner" style="background-color:#FBC02D">Winner</paper-button>
+                <paper-button on-tap="_thanks" style="background-color:#FBC02D">Thanks</paper-button>
+                
            </div>
         `;
     }

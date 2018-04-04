@@ -3,9 +3,14 @@ import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polyme
 export class PaaspopControl extends PolymerElement {
     static get template() {
         return `
-            <template is="dom-repeat" items="{{cams}}">
-                <paaspop-camera selectedcam="[[selectedcam]]" cam="{{item}}"></paaspop-camera>
-            </template>
+            <style>
+                .container {}
+            </style>
+            <div class="container">
+                <template is="dom-repeat" items="{{cams}}">
+                    <paaspop-camera selectedcam="[[selectedcam]]" cam="{{item}}"></paaspop-camera>
+                </template>
+            </div>
         `;
     }
 

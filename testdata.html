@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+</head>
+<body>
+    <script>
+      var config = {
+            apiKey: "AIzaSyCEmS-zRpnIs3C5Wx7wGQTQjgdXjCRNBgY",
+            authDomain: "votes-app.firebaseapp.com",
+            databaseURL: "https://votes-app.firebaseio.com",
+            projectId: "votes-app",
+            storageBucket: "votes-app.appspot.com",
+            messagingSenderId: "623693263456"
+        };
+        firebase.initializeApp(config);
+        setInterval(() => {
+            var mood = (Math.floor(Math.random() * 10) % 3) + 1;
+            var camidint = (Math.floor(Math.random() * 100) % 11);
+            var camid = ["cam02","cam03","cam04","cam05","cam06","cam07","cam08","cam09","cam10","cam11"][camidint];
+            firebase.database().ref('moods/'+ camid + "/level").set(mood);
+            console.log('mood set for ', camid, mood);
+        }, 1000); 
+    </script>
+</body>
+</html>

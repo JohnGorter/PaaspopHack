@@ -9,3 +9,4 @@ import './paaspop-moodsource.js';
 import './paaspop-moodschedule.js';
 import './paaspop-camera.js';
 import './paaspop-control.js';
+import './paaspop-map.js';
